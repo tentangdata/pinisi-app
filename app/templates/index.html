@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+	<h1>Ayo!</h1>
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	{% for message in messages %}
+	<div class="col-sm-12 alert alert-error">
+		<p><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> {{ message }}</p>
+	</div>
+	{% endfor %}
+	{% endif %}
+	{% endwith %}
+	<form id="dictionary-form" action="" method="post" class="lead">
+		<div class="form-group col-sm-12">
+			<input type="email" id="email" name="email" class="form-control" placeholder="Masukkan email Anda">
+		</div>
+		{% if errors %}
+		{% for err in errors %}
+		<p><strong>{{ err }}</strong></p>
+		{% endfor %}
+		{% endif %}
+		<button class="btn btn-lg btn-success">Submit</button>
+	</form>
+</div>
+{% endblock %}

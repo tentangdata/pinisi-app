@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pirates map for treasure hunt">
+    <meta name="author" content="Tim Tentang Data">
+    <title>Harta Karun</title>
+    <link href="https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css" rel="stylesheet" />
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" rel="stylesheet" />
+    <!-- <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"> -->
+    <style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        height: 100%;
+        width: 100%;
+    }
+    #map {
+        height: 100%;
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="map">
+        </div>
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js"></script>
+    <script type="text/javascript">
+    $.get("/static/js/levels.json", function(data) {
+        var map_data = data['maps'][{{ map }}];
+        L.mapbox.accessToken = 'pk.eyJ1IjoiYWxpYWtiYXJzIiwiYSI6IjJlMjY1MDY4OTY2YThhMGExYjMzNTgwNGE1Y2Q2MTA3In0.uoax_edyRSXnlg7N4Vj4Nw';
+        var map = L.mapbox.map('map', 'aliakbars.27f8ea9d').setView([map_data.lat, map_data.lng], map_data.zoom);
+
+        var marker = L.marker([map_data.lat, map_data.lng], {
+            clickable: true,
+            icon: L.mapbox.marker.icon({'marker-color': '#178846'})
+        }).addTo(map)
+        .bindPopup('Semua bermula dari sini.').openPopup();
+
+        function onMapClick(e) {
+            var content = "<p>Anda memilih lokasi<br>" + e.latlng.toString() + "</p>";
+            content += "<form action='' method='post'><input type='hidden' name='level' value='" + map_data.level + "'><input type='hidden' name='lat' value='" + e.latlng.lat + "'>" +
+                "<input type='hidden' name='lng' value='" + e.latlng.lng + "'>" +
+                "<p class='text-center'><input type='submit' class='btn btn-default' value='Oke!'></p></form>"
+            marker
+                .setLatLng(e.latlng)
+                .bindPopup(content)
+                .openPopup();
+        }
+
+        $.get("/static/js/lhokseumawe.json", function(data) {
+            var points = data['geometries'][0]['coordinates'][0][0];
+            var rpoints = [];
+            for (var i = points.length - 1; i >= 0; i--) {
+                rpoints.push(points[i].reverse());
+            };
+            var myStyle = {
+                "color": "#DEBE7B",
+                "weight": 5,
+                "opacity": 0.5
+            };
+            var treasureZone = L.polygon(rpoints, myStyle).addTo(map);
+            
+            // L.geoJson(data, {
+            //     style: myStyle
+            // }).addTo(map);
+        });
+
+        map.on('click', onMapClick);
+    });
+    </script>
+</body>
+</html>

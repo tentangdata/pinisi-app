@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block nav %}
+<li role="presentation"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Beranda</a></li>
+<li role="presentation" class="active"><a href="/words"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Kata-kata</a></li>
+{% endblock %}
+{% block content %}
+<div class="row marketing">
+	<h1>Kontribusi Anda</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Alay</th>
+				<th>Baku</th>
+				<th>Jumlah</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for d in dicts %}
+			<tr>
+				<td>{{ loop.index }}</td>
+				<td>{{ d[0][0] }}</td>
+				<td>{{ d[0][1] }}</td>
+				<td>{{ d[1] }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

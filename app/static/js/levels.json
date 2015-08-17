@@ -1,0 +1,46 @@
+{
+    "maps": [
+        {
+            "lat": -7.7702579,
+            "lng": 110.3792915,
+            "zoom": 17,
+            "level": 1,
+            "name": "Universitas Gadjah Mada"
+        },
+        {
+            "lat": 5.1965936,
+            "lng": 97.1037736,
+            "zoom": 14,
+            "level": 2,
+            "name": "Lhokseumawe"
+        },
+        {
+            "lat": -6.12144,
+            "lng": 106.839848,
+            "zoom": 15,
+            "level": 3,
+            "name": "Ancol"
+        },
+        {
+            "lat": -10.6870474,
+            "lng": 123.1152895,
+            "zoom": 11,
+            "level": 4,
+            "name": "Pulau Rote"
+        },
+        {
+            "lat": -3.6853083,
+            "lng": 128.1894066,
+            "zoom": 14,
+            "level": 5,
+            "name": "Ambon"
+        },
+        {
+            "lat": -2.548926,
+            "lng": 118.0148634,
+            "zoom": 6,
+            "level": 6,
+            "name": "Indonesia"
+        }
+    ]
+}
