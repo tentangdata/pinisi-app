@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 # Heroku
-# heroku = Heroku(app)
+heroku = Heroku(app)
 
 # Define the database object which is imported
 # by modules and controllers

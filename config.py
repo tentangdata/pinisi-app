@@ -7,7 +7,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Define the database - we are working with
 # SQLite for this example
-SQLALCHEMY_DATABASE_URI = 'postgres://postgres:psql@localhost:5432/hartakarun'
+# SQLALCHEMY_DATABASE_URI = 'postgres://postgres:psql@localhost:5432/hartakarun'
 DATABASE_CONNECT_OPTIONS = {}
 
 # Application threads. A common general assumption is
