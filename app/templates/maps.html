@@ -41,18 +41,17 @@
         var marker = L.marker([map_data.lat, map_data.lng], {
             clickable: true,
             icon: L.mapbox.marker.icon({'marker-color': '#178846'})
-        }).addTo(map)
-        .bindPopup('Semua bermula dari sini.').openPopup();
+        }).setOpacity(0).addTo(map);
 
         function onMapClick(e) {
             var content = "<p>Anda memilih lokasi<br>" + e.latlng.toString() + "</p>";
             content += "<form action='' method='post'><input type='hidden' name='level' value='" + map_data.level + "'><input type='hidden' name='lat' value='" + e.latlng.lat + "'>" +
                 "<input type='hidden' name='lng' value='" + e.latlng.lng + "'>" +
                 "<p class='text-center'><input type='submit' class='btn btn-default' value='Oke!'></p></form>"
-            marker
-                .setLatLng(e.latlng)
+            marker.setLatLng(e.latlng)
                 .bindPopup(content)
-                .openPopup();
+                .openPopup()
+                .setOpacity(1);
         }
 
         $.get("/static/js/lhokseumawe.json", function(data) {
@@ -67,10 +66,6 @@
                 "opacity": 0.5
             };
             var treasureZone = L.polygon(rpoints, myStyle).addTo(map);
-            
-            // L.geoJson(data, {
-            //     style: myStyle
-            // }).addTo(map);
         });
 
         map.on('click', onMapClick);
