@@ -2,6 +2,7 @@ from flask import Blueprint, request, render_template, \
                   flash, g, session, redirect, url_for
 from werkzeug import check_password_hash, generate_password_hash
 from app import db
+from app.landing.models import User
 from app.maps.models import Point
 from random import shuffle
 
@@ -17,6 +18,15 @@ def final():
 			point = Point(session['user_id'], request.form['level'], request.form['lat'], request.form['lng'])
 			db.session.add(point)
 			db.session.commit()
+			email = db.session.query(User).filter(User.id == 1).first().email
+			points = db.session.query(Point).filter(Point.user_id == session['user_id']).all()
+			mandrill.send_email(
+		 		from_email='noreply@tentangdata.com',
+		 		from_name='Tim Tentang Data',
+		 		to=[{'email': email}],
+		 		subject='Treasure Hunt',
+		 		text='Terima kasih sudah berpartisipasi dalam permainan ini. Berikut adalah titik-titik yang Anda pilih pada setiap lokasi:\n%s' % '\n'.join(points)
+		 	)
 			session.clear()
 			return redirect('/success')
 	return render_template('maps.html', map=5)

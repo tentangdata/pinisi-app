@@ -28,4 +28,5 @@ def hello():
 
 @landing.route('/success', methods=['GET'])
 def success():
-	return render_template('success.html')
+	treasures = ', '.join(request.args.getlist('item'))
+	return render_template('success.html', treasures=treasures)

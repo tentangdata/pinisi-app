@@ -16,4 +16,4 @@ class Point(db.Model):
         self.lng = lng
 
     def __repr__(self):
-        return '<Content %r - %r (%r, %r)>' % (self.user_id, self.level, self.lat, self.lng)
+        return 'Level %r: (%r, %r)' % (self.user_id, self.level, self.lat, self.lng)

@@ -1,12 +1,40 @@
 {% extends 'base.html' %}
+{% block meta %}
+<meta property="og:url"           content="http://floating-waters-3050.herokuapp.com" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="Harta Karun" />
+<meta property="og:description"   content="Anda mendapatkan {{ treasures }} dalam pencarian harta karun" />
+<meta property="og:image"         content="http://aliakbars.com/assets/reg.png" />
+<meta property="og:image"         content="http://aliakbars.com/assets/vip.png" />
+{% endblock %}
+
 {% block nav %}
 <li role="presentation"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Beranda</a></li>
-<li role="presentation"><a href="/words"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Kata-kata</a></li>
 {% endblock %}
+
 {% block content %}
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '455527504647138',
+        xfbml      : true,
+        version    : 'v2.4'
+    });
+};
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
 <div class="jumbotron">
 	<h1>Berhasil!</h1>
 	<p class="lead">Terima kasih sudah berpartisipasi. Semoga proyek ini bisa bermanfaat bagi Anda kelak.</p>
 	<h1 class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></h1>
+	<br>
+	<div class="fb-share-button" data-href="http://floating-waters-3050.herokuapp.com/success?item=ondel-ondel&item=bakpia%20pathuk&item=pedang-emas" data-layout="button_count"></div>
 </div>
 {% endblock %}
