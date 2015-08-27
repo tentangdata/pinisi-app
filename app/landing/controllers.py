@@ -28,5 +28,6 @@ def hello():
 
 @landing.route('/success', methods=['GET'])
 def success():
-	treasures = request.args.get('item')
+	treasures = ', '.join(['keris, sasando, dan koin emas'])
+	session.clear()
 	return render_template('success.html', treasures=treasures)

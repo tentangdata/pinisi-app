@@ -27,7 +27,6 @@ def final():
 		 		subject='Treasure Hunt',
 		 		text='Terima kasih sudah berpartisipasi dalam permainan ini. Berikut adalah titik-titik yang Anda pilih pada setiap lokasi:\n%s' % '\n'.join(points)
 		 	)
-			session.clear()
 			return redirect('/success')
 	return render_template('maps.html', map=5)
 
