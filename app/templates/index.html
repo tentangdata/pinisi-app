@@ -1,26 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="jumbotron">
-	<h1>Ayo!</h1>
-	{% with messages = get_flashed_messages() %}
-	{% if messages %}
-	{% for message in messages %}
-	<div class="col-sm-12 alert alert-error">
-		<p><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> {{ message }}</p>
-	</div>
-	{% endfor %}
-	{% endif %}
-	{% endwith %}
-	<form id="dictionary-form" action="" method="post" class="lead">
-		<div class="form-group col-sm-12">
-			<input type="email" id="email" name="email" class="form-control" placeholder="Masukkan email Anda">
+	<div class="bg">
+		<div class="container">
+			<div class="col-lg-2"></div>
+			<div class="col-lg-8">
+				<div class="kertas-a"></div>
+				<div class="kertas-t">
+					<h1>Pinisi</h1>
+					<h2>Challenge Accepted!</h2>
+					<div class="col-lg-1"></div>
+					<div class="col-lg-10">
+						<p>
+							Harta Karun Jenderal Yamashita akhirnya ditemukan oleh seorang perompak terkenal bernama Perompak Mada dari kepulauan Arsanesia, dan jumlahnya terlalu besar untuk ia habiskan 7 turunan!
+
+							<br><br>
+							Di tengah kekisruhan yang melanda Bangsa Indonesia akibat kurs rupiah mulai menyaingi <em>hotline</em> McDona, Perompak Mada memutuskan untuk membagikan harta karun yang ia temukan kepada mereka yang memiliki intuisi setajam silet dan <em>feeling</em> sedahsyat ekstrak buah manggis!
+							<br><br>
+
+							Perompak Mada telah menyebar kembali sebagian besar harta yang ia temukan di 5 tempat berbeda di seluruh pelosok negeri Indonesia, dan tugas kamu adalah menjadi yang paling tepat menebak lokasinya!
+
+							<br><br>
+							Permainan ini tidak mengandung teka-teki, bukan pula tes IQ. Ini adalah sebuah <em>social experiment</em>, maka jika Anda merasa tertantang dan bersedia meluangkan waktu sejenak untuk bersenang-senang, silakan baca petunjuk selanjutnya dan bersiaplah!
+						</p>
+						<div class="text-center">
+							<a href="/cara-main" class="btn btn-ahoy"><img class="img-responsive" src="{{ url_for('static', filename='images/ahoy.png') }}" width="200px"></a>
+						</div>
+					</div>
+					<div class="col-lg-1"></div>
+				</div>
+				<div class="kertas-b"></div>
+			</div>
+			<div class="col-lg-2"></div>
 		</div>
-		{% if errors %}
-		{% for err in errors %}
-		<p><strong>{{ err }}</strong></p>
-		{% endfor %}
-		{% endif %}
-		<button class="btn btn-lg btn-success">Submit</button>
-	</form>
-</div>
+	</div>
 {% endblock %}

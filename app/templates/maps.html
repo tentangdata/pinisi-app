@@ -5,28 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Pirates map for treasure hunt">
     <meta name="author" content="Tim Tentang Data">
-    <title>Harta Karun</title>
+    <title>Pinisi</title>
     <link href="https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css" rel="stylesheet" />
     <link href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" rel="stylesheet" />
-    <!-- <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"> -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <style type="text/css">
+    @font-face {
+        font-family: Essays1743;
+        src: url("/static/fonts/Essays1743.ttf");
+    }
     body {
         margin: 0;
         padding: 0;
     }
     .container {
+        margin: 0;
+        padding: 0;
         height: 100%;
         width: 100%;
     }
     #map {
+        z-index: 0;
         height: 100%;
         width: 100%;
+    }
+    .dialog-box {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 9999;
+        background: url("{{ url_for('static', filename='images/dialog-box.png') }}");
+        background-size: 100% 100%;
+        width: 640px;
+        height: 138px;
+        position: fixed;
+        bottom: 15px;
+    }
+    .dialog-text {
+        font-family: 'Essays1743';
+        font-size: 11pt;
+        width: 82%;
+        height: 100%;
+        padding-top: 25px;
+        padding-left: 10px;
+        color: #000;
+    }
+    @media screen and (max-width: 639px) {
+        .dialog-box {
+            background: #000;
+            background-size: 100% 100%;
+            width: 100%;
+            height: auto;
+            position: fixed;
+            bottom: 15px;
+        }
+        .dialog-text {
+            font-size: 10pt;
+            color: #fff;
+            width: 100%;
+            height: 100%;
+            padding: 10px 10px;
+        }
     }
     </style>
 </head>
 <body>
     <div class="container">
-        <div id="map">
+        <div id="map">    
+        </div>
+        <div class="dialog-box">
+            <div class="dialog-text">
+                <p>
+                    "Kita ingin mejadi ikon yang nantinya menjadi branding Arsanesia sendiri seperti yang dilakukan Walt Disney terhadap tokoh-tokohnya. Juga ingin membangun suatu konsep serupa dengan Disney Land bernama Arsa Land tetapi tentunya cita rasa kebudayaan Indonesia." &hyphen; <strong>Perompak Mada</strong>
+                </p>
+            </div>
         </div>
     </div>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -40,7 +92,15 @@
 
         var marker = L.marker([map_data.lat, map_data.lng], {
             clickable: true,
-            icon: L.mapbox.marker.icon({'marker-color': '#178846'})
+            icon: L.icon({
+                iconUrl: '/static/images/marker-icon-mega.png',
+                shadowUrl: '/static/images/marker-shadow.png',
+                iconSize: [25, 41],
+                shadowSize: [41, 41],
+                iconAnchor: [11, 40],
+                shadowAnchor: [11, 40],
+                popupAnchor: [0, -40]
+            })
         }).setOpacity(0).addTo(map);
 
         function onMapClick(e) {
@@ -70,6 +130,19 @@
 
         map.on('click', onMapClick);
     });
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58703941-6', 'auto');
+      ga('send', 'pageview');
+      document.getElementById('dictionary-form').onsubmit = function() {
+        ga('send', 'event', {eventCategory: 'Dictionary', eventAction: 'Input Word'});
+      }
+
     </script>
 </body>
 </html>

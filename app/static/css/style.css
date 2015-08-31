@@ -1,0 +1,157 @@
+@font-face {
+	font-family: Essays1743;
+	src: url(/static/fonts/Essays1743.ttf);
+}
+
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+}
+
+body {
+	background: url(/static/images/bg-peta.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Essays1743',sans-serif;
+    color: #000;
+}
+
+.container {
+	padding-top: 20px;
+}
+
+h1, h2 {
+	font-family: 'Pirata One', cursive;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+h1{
+	font-size: 40pt;
+}
+
+p {
+	font-size: 11pt;
+}
+.dialog-text {
+	padding-top: 50px;
+	font-size: 16pt;
+}
+
+.dialog-box {
+	background-image: url("/static/images/dialog-box.png");
+	width: 1200px;
+	padding-bottom: 75px;
+	background-repeat: no-repeat;
+}
+
+.kertas-a {
+	background-image: url("/static/images/kertas-a.png");
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-size: 100%;
+	height: 179px;
+}
+
+.kertas-t {
+	background-image: url("/static/images/kertas-t.png");
+	background-size: contain;
+	min-height: 400px;
+	padding: 0 20px;
+	background-repeat: repeat-y;
+}
+
+.kertas-b {
+	background-image: url("/static/images/kertas-b.png");
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: 100%;
+	height: 227px;
+}
+
+.kertas-cara {
+	background-image: url("/static/images/kertas-cara.png");
+	/*background-repeat: no-repeat;
+	background-position: center center;*/
+	background-size: 100% 100%;
+	/*height: 675px;*/
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+@media screen and (max-width: 1200px) {
+	.kertas-cara {
+		background: #000000;
+		color: #D0A96E;
+		border-radius: 25px 0 25px 0;
+	}
+}
+
+.cara-text {
+	text-align: center;
+	font-size: 14pt;
+}
+
+.cara > img {
+	max-height: 220px;
+}
+
+.btn-ahoy {
+	
+}
+
+.btn-ahoy:hover {
+	-ms-transform: rotate(7deg); /* IE 9 */
+    -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+    transform: rotate(7deg);
+}
+
+.btn-ahoy:active {
+	-ms-transform: rotate(0deg); /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    transform: rotate(0deg);
+    box-shadow: none;
+}
+
+.btn {
+	background: transparent;
+	border: none;
+}
+
+.btn .btn-ahoy {
+	width: 100px;
+	background: transparent;
+}
+
+.form-inline {
+	text-align: center;
+}
+
+.ahoy {
+	text-align: center;
+}
+
+.end {
+	text-align: center;
+}
+
+.end-text > p {
+	font-size: 12pt;
+}
+
+.end > .kertas-t {
+	background-image: url("/static/images/kertas-t.png");
+	background-size: 100%;
+	min-height: 265px;
+	background-repeat: repeat-y;
+}

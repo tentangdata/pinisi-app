@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Pinisi | Cara Main</title>
+{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="row kertas-cara">
+			<h1>Pinisi</h1>
+			<h2>Cara Bermain</h2>
+			<br>
+			<div class="col-lg-1"></div>
+
+			<div class="col-lg-10 cara-text">
+				<div class="col-lg-4 cara">
+					<img src="{{ url_for('static', filename='images/cara-1.png') }}" alt=""><p><strong><br>Area pencarian pada setiap map dibatasi oleh kotak merah</strong></p>
+				</div>
+				<div class="col-lg-4 cara">
+					<img src="{{ url_for('static', filename='images/cara-2.png') }}" alt=""><p><strong><br>Tebak lokasi harta karun dengan klik pada map dan klik "Ok" untuk konfirmasi</strong></p>
+				</div>
+				<div class="col-lg-4 cara">
+					<img src="{{ url_for('static', filename='images/cara-3.png') }}" alt=""><p><strong><br>Klaim hadiahmu!</strong></p>
+				</div>
+			</div>
+			<div class="col-lg-1"></div>
+
+			<div class="col-lg-12">
+				<div class="text-center">	
+					<a href="/aturan-main" class="btn btn-ahoy"><img class="img-responsive" src="{{ url_for('static', filename='images/ahoy.png') }}" width="200px"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

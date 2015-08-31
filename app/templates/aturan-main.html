@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Pinisi | Aturan Main</title>
+{% endblock %}
+{% block content %}
+	<div class="bg">
+		<div class="container">
+			<div class="col-lg-2"></div>
+			<div class="col-lg-8">
+				<div class="kertas-a">
+				</div>
+				<div class="kertas-t">
+					<h1>Pinisi</h1>
+					<h2>Aturan Pencarian</h2>
+					<div class="col-lg-1"></div>
+					<div class="col-lg-9">
+						<p>
+							<ol>
+								<li>Anda akan mendapatkan sekilas profil Perompak Mada, tetapi tidak ada <em>clue</em> sama sekali dimana letak harta karun berada, sekali lagi permainan ini bukan teka-teki ataupun tes IQ.</li>
+								<li>Waktu yang dibutuhkan hanya 10-15 menit.</li>
+								<li>Pastikan memilih koordinat di dalam kotak merah</li>
+								<li>Untuk setiap area hanya dapat memilih 1 koordinat</li>
+								<li>Ada hadiah beneran (iya, beneran!) menunggu jika tebakan kamu adalah yang paling dekat dengan lokasi harta karun sesungguhnya! </li>
+								<li>Jika Anda meneror Perompak Mada maka akan langsung didiskualifikasi!</li>
+								<li><em>Please, enjoy the game!</em></li>
+							</ol>
+						</p>	
+					</div>
+					<div class="col-lg-2"></div>
+					<div class="col-lg-12"><h2>Scribe ye e-mail</h2>
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8">
+							<form action="" method="post" role="form" class="form-inline">
+								<div class="form-group">
+									<input type="email" name="email" id="form-elem-3" class="form-control input-md" placeholder="E-mail Anda di sini">
+								</div>
+								<button class="btn btn-ahoy"><img class="img-responsive" src="{{ url_for('static', filename='images/ahoy.png') }}" width="100px"></button>
+								<p><strong><em>*pastikan mengisi email dengan benar untuk konfirmasi hadiah</em></strong></p>
+							</form>
+						</div>
+						<div class="col-lg-2">
+						</div>
+					</div>
+				</div>
+				<div class="kertas-b">
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-2"></div>
+	</div>
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	{% for message in messages %}
+	<script type="text/javascript">alert("{{ message }}")</script>
+	{% endfor %}
+	{% endif %}
+	{% endwith %}
+{% endblock %}
