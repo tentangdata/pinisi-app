@@ -1,0 +1,3 @@
+# Pinisi
+
+Sebuah eksperimen sosial
