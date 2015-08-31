@@ -17,6 +17,10 @@ def hello():
 def how_to_play():
 	return render_template('cara-main.html')
 
+@landing.route('/perompak', methods=['GET'])
+def clue():
+	return render_template('perompak.html')
+
 @landing.route('/aturan-main', methods=['GET', 'POST'])
 def rules():
 	if request.method == 'POST':
@@ -33,7 +37,7 @@ def rules():
 				session['user_id'] = user.id
 				session['maps'] = range(5)
 				shuffle(session['maps'])
-				return redirect('/maps/1/')
+				return redirect('/perompak')
 			except ValueError, e:
 				flash(e)
 			except Exception, e:
@@ -45,3 +49,7 @@ def success():
 	treasures = ', '.join(['keris, sasando, dan koin emas'])
 	session.clear()
 	return render_template('end.html', treasures=treasures)
+
+@landing.route('/tentang-pinisi', methods=['GET'])
+def about():
+	return render_template('about.html')

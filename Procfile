@@ -1,1 +1,1 @@
-web: gunicorn app:app --log-file=pinisi.log
+web: gunicorn app:app --log-file=-
