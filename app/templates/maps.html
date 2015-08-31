@@ -114,19 +114,14 @@
                 .setOpacity(1);
         }
 
-        $.get("/static/js/lhokseumawe.json", function(data) {
-            var points = data['geometries'][0]['coordinates'][0][0];
-            var rpoints = [];
-            for (var i = points.length - 1; i >= 0; i--) {
-                rpoints.push(points[i].reverse());
-            };
-            var myStyle = {
-                "color": "#DEBE7B",
-                "weight": 5,
-                "opacity": 0.5
-            };
-            var treasureZone = L.polygon(rpoints, myStyle).addTo(map);
-        });
+        var points = map_data['polygon'];
+        var myStyle = {
+            "color": "#F00",
+            "weight": 5,
+            "opacity": 1,
+            "fillOpacity": 0
+        };
+        var treasureZone = L.polygon(points, myStyle).addTo(map);
 
         map.on('click', onMapClick);
     });
