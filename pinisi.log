@@ -1,0 +1,7 @@
+[2015-08-31 21:27:13 +0000] [5044] [INFO] Starting gunicorn 19.3.0
+[2015-08-31 21:27:13 +0000] [5044] [INFO] Listening at: http://0.0.0.0:5000 (5044)
+[2015-08-31 21:27:13 +0000] [5044] [INFO] Using worker: sync
+[2015-08-31 21:27:13 +0000] [5051] [INFO] Booting worker with pid: 5051
+[2015-08-31 21:27:19 +0000] [5044] [INFO] Handling signal: int
+[2015-08-31 21:27:20 +0000] [5051] [INFO] Worker exiting (pid: 5051)
+[2015-08-31 21:27:20 +0000] [5044] [INFO] Shutting down: Master
