@@ -7,14 +7,18 @@ from flask.ext.sqlalchemy import SQLAlchemy
 # Import Heroku
 from flask.ext.heroku import Heroku
 
+# Import Mandrill
+from flask.ext.mandrill import Mandrill
+
 # Define the WSGI application object
 app = Flask(__name__)
 
 # Configurations
 app.config.from_object('config')
 
-# Heroku
+# Heroku & Mandrill
 heroku = Heroku(app)
+mandrill = Mandrill(app)
 
 # Define the database object which is imported
 # by modules and controllers
