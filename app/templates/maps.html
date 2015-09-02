@@ -75,9 +75,13 @@
         </div>
         <div class="dialog-box">
             <div class="dialog-text">
+                {% if 'final' in request.url %}
+                <h1>"Ini level terakhir!"</h1>
+                {% else %}
                 <p>
                     "Kita ingin mejadi ikon yang nantinya menjadi branding Arsanesia sendiri seperti yang dilakukan Walt Disney terhadap tokoh-tokohnya. Juga ingin membangun suatu konsep serupa dengan Disney Land bernama Arsa Land tetapi tentunya cita rasa kebudayaan Indonesia." &hyphen; <strong>Perompak Mada</strong>
                 </p>
+                {% endif %}
             </div>
         </div>
     </div>
