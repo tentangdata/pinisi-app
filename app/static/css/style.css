@@ -3,6 +3,11 @@
 	src: url(/static/fonts/Essays1743.ttf);
 }
 
+@font-face {
+	font-family: Pirata One;
+	src: url(/static/fonts/PirataOne-Regular.ttf);
+}
+
 html {
 	height: 100%;
 	margin: 0;
@@ -77,6 +82,22 @@ p {
 	height: 227px;
 }
 
+@media screen and (max-width: 640px) {
+	.kertas-a {
+		background-image: url("/static/images/kertas-a-mobile.png");
+		height: 175px;
+	}
+
+	.kertas-t {
+		background-image: url("/static/images/kertas-t-mobile.png");
+		min-height: 193px;
+	}
+
+	.kertas-b {
+		background-image: url("/static/images/kertas-b-mobile.png");
+	}
+}
+
 .kertas-atas {
     background-image: url("/static/images/kertas-a.png");
     background-repeat: no-repeat;
@@ -110,30 +131,65 @@ p {
 	padding-bottom: 60px;
 }
 
-@media screen and (max-width: 1170px) {
+@media screen and (min-width: 360px) and (max-width: 1170px) {
 	.kertas-header {
-	    background-image: url("/static/images/header.png");
+	    background-image: url("/static/images/header2.png");
 	    background-repeat: no-repeat;
 	    background-position: bottom center;
-	    height: 555px;
+	    height: 225px;
 	    background-size: 100%;
 	}
 
 	.kertas-body {
-	    background-image: url("/static/images/body.png");
+	    background-image: url("/static/images/body2.png");
 	    background-size: contain;
-	    min-height: 400px;
+	    min-height: 284px;
 	    padding: 0 20px;
 	    margin: 0;
 	    background-repeat: repeat-y;
 	}
 
 	.kertas-footer {
-	    background-image: url("/static/images/footer.png");
+	    background-image: url("/static/images/footer2.png");
 	    background-repeat: no-repeat;
 	    background-position: top center;
-	    height: 551px;
+	    height: 225px;
 	    background-size: 100%;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	body {
+		background: url(/static/images/bg-peta-mobile.png) no-repeat center center fixed;
+	}
+
+	.kertas-header {
+	    background-image: url("/static/images/header-mobile.png");
+	    background-repeat: no-repeat;
+	    background-position: bottom center;
+	    height: 113px;
+	    background-size: 100%;
+	}
+
+	.kertas-body {
+	    background-image: url("/static/images/body-mobile.png");
+	    background-size: contain;
+	    min-height: 142px;
+	    padding: 0 20px;
+	    margin: 0;
+	    background-repeat: repeat-y;
+	}
+
+	.kertas-footer {
+	    background-image: url("/static/images/footer-mobile.png");
+	    background-repeat: no-repeat;
+	    background-position: top center;
+	    height: 113px;
+	    background-size: 100%;
+	}
+
+	.btn-ahoy > img {
+		width: 150px;
 	}
 }
 
