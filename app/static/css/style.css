@@ -77,16 +77,64 @@ p {
 	height: 227px;
 }
 
-.kertas-cara {
+.kertas-atas {
+    background-image: url("/static/images/kertas-a.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    min-height: 34px;
+}
+
+.kertas-tengah {
+    background-image: url("/static/images/kertas-t.png");
+    background-size: contain;
+    min-height: 400px;
+    padding: 0 20px;
+    background-repeat: repeat-y;
+}
+
+.kertas-bawah {
+    background-image: url("/static/images/kertas-b.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% 100%;
+    height: 227px;
+}
+
+.kertas-body {
 	background-image: url("/static/images/kertas-cara.png");
-	/*background-repeat: no-repeat;
-	background-position: center center;*/
 	background-size: 100% 100%;
-	/*height: 675px;*/
 	margin-top: 40px;
 	margin-bottom: 40px;
 	padding-top: 60px;
 	padding-bottom: 60px;
+}
+
+@media screen and (max-width: 1170px) {
+	.kertas-header {
+	    background-image: url("/static/images/header.png");
+	    background-repeat: no-repeat;
+	    background-position: bottom center;
+	    height: 555px;
+	    background-size: 100%;
+	}
+
+	.kertas-body {
+	    background-image: url("/static/images/body.png");
+	    background-size: contain;
+	    min-height: 400px;
+	    padding: 0 20px;
+	    margin: 0;
+	    background-repeat: repeat-y;
+	}
+
+	.kertas-footer {
+	    background-image: url("/static/images/footer.png");
+	    background-repeat: no-repeat;
+	    background-position: top center;
+	    height: 551px;
+	    background-size: 100%;
+	}
 }
 
 @media screen and (max-width: 1200px) {
