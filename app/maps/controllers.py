@@ -11,6 +11,8 @@ maps = Blueprint('maps', __name__, url_prefix='/maps')
 
 @maps.route('/final/', methods=['GET', 'POST'])
 def final():
+	if not session.get('user_id'):
+		return redirect('/aturan-main')
 	if request.method == 'POST':
 		if not request.form['level'] or not request.form['lat'] or not request.form['lng']:
 			flash('Pastikan Anda sudah memilih satu titik!')
@@ -32,6 +34,8 @@ def final():
 
 @maps.route('/<level>/', methods=['GET', 'POST'])
 def index(level):
+	if not session.get('user_id'):
+		return redirect('/aturan-main')
 	if request.method == 'POST':
 		if not request.form['level'] or not request.form['lat'] or not request.form['lng']:
 			flash('Pastikan Anda sudah memilih satu titik!')
