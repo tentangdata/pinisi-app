@@ -52,7 +52,7 @@
     }
     @media screen and (max-width: 639px) {
         .dialog-box {
-            background: #000;
+            background: url("/static/images/dialog-box-mobile.png");
             background-size: 100% 100%;
             width: 100%;
             height: auto;
@@ -61,10 +61,9 @@
         }
         .dialog-text {
             font-size: 10pt;
-            color: #fff;
             width: 100%;
             height: 100%;
-            padding: 10px 10px;
+            padding: 15px 15px;
         }
     }
     </style>
@@ -76,10 +75,10 @@
         <div class="dialog-box">
             <div class="dialog-text">
                 {% if 'final' in request.url %}
-                <h1>"Ini level terakhir!"</h1>
+                <h1>"<span id='location-name'></span>! Ini level terakhir!"</h1>
                 {% else %}
                 <p>
-                    "Kita ingin mejadi ikon yang nantinya menjadi branding Arsanesia sendiri seperti yang dilakukan Walt Disney terhadap tokoh-tokohnya. Juga ingin membangun suatu konsep serupa dengan Disney Land bernama Arsa Land tetapi tentunya cita rasa kebudayaan Indonesia." &hyphen; <strong>Perompak Mada</strong>
+                    "<strong>Selamat datang di <span id='location-name'></span>!</strong> Kita ingin mejadi ikon yang nantinya menjadi branding Arsanesia sendiri seperti yang dilakukan Walt Disney terhadap tokoh-tokohnya. Juga ingin membangun suatu konsep serupa dengan Disney Land bernama Arsa Land tetapi tentunya cita rasa kebudayaan Indonesia." &hyphen; <strong>Perompak Mada</strong>
                 </p>
                 {% endif %}
             </div>
@@ -106,6 +105,8 @@
                 popupAnchor: [0, -40]
             })
         }).setOpacity(0).addTo(map);
+
+        document.getElementById('location-name').innerHTML = map_data.name;
 
         function onMapClick(e) {
             var content = "<p>Anda memilih lokasi<br>" + e.latlng.toString() + "</p>";

@@ -1,0 +1,44 @@
+{
+    "treasures": [
+        {
+            "level": 1,
+            "tokens": [
+                {"name": "Bakpia", "url": "/static/images/token-jogja-bakpia.png"},
+                {"name": "Keris", "url": "/static/images/token-jogja-keris.png"},
+                {"name": "Wayang", "url": "/static/images/token-jogja-wayang.png"}
+            ]
+        },
+        {
+            "level": 2,
+            "tokens": [
+                {"name": "Kopi Aceh Gayo", "url": "/static/images/token-aceh-kopi.png"},
+                {"name": "Lonceng Cakra Donya", "url": "/static/images/token-aceh-lonceng.png"},
+                {"name": "Rencong", "url": "/static/images/token-aceh-rencong.png"}
+            ]
+        },
+        {
+            "level": 3,
+            "tokens": [
+                {"name": "Ondel-ondel", "url": "/static/images/token-jkt-ondel-ondel.png"},
+                {"name": "Monas", "url": "/static/images/token-jkt-monas.png"},
+                {"name": "Roti Buaya", "url": "/static/images/token-jkt-roti-buaya.png"}
+            ]
+        },
+        {
+            "level": 4,
+            "tokens": [
+                {"name": "Moko", "url": "/static/images/token-rote-moko.png"},
+                {"name": "Sasando", "url": "/static/images/token-rote-sasando.png"},
+                {"name": "Topi Ti'i Langga", "url": "/static/images/token-rote-topi.png"}
+            ]
+        },
+        {
+            "level": 5,
+            "tokens": [
+                {"name": "Kue Sagu Ambon", "url": "/static/images/token-ambon-sagu.png"},
+                {"name": "Mutiara", "url": "/static/images/token-ambon-mutiara.png"},
+                {"name": "Pisang Ambon", "url": "/static/images/token-ambon-pisang.png"}
+            ]
+        }
+    ]
+}

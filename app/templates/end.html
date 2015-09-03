@@ -21,23 +21,29 @@
 		<div class="container">
 			<div class="col-lg-2"></div>
 			<div class="col-lg-8">
-				<div class="kertas-a">
-				</div>
-				<div class="end">
-					<div class="kertas-t">
+				<div class="col-lg-12 kertas-a"></div>
+					<div class="col-lg-12 kertas-t text-center">
 						<h1>Pinisi</h1>
 						<h2>Akhirnya!</h2>
+						<h3>Selamat! Anda berhasil mendapatkan</h3>
 						<div class="col-lg-1"></div>
-						<div class="col-lg-10 end-text">
-							<br>
-							<p>
-								Lumayan lah ya barusan kita ajak keliling Nusantara sejenak. Terima kasih telah bersedia memberikan waktu Anda untuk bersenang-senang sebentar bersama kami.
-								<br><br>
-								Apakah Anda bertanya-tanya, "Sebenarnya apa yang baru saja saya lakukan?" Tunggu info berikutnya ke email Anda! Siapa tahu intuisi Anda yang paling tepat menebak jalan pikir perompak Mada sehingga Anda berhak mendapatkan hadiah?
-							</p>
-							<div class="fb-share-button" data-href="http://pinisi.tentangdata.com" data-layout="button_count"></div><br>
-							<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://pinisi.tentangdata.com" data-text="Saya berhasil mendapatkan harta karun Perompak Mada!">Tweet</a>
-							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+						<div class="col-lg-10">
+							<div class="col-lg-1"></div>
+							<div id="treasures">
+							</div>
+							<div class="col-lg-1"></div>
+							<div class="col-lg-12">
+								<p>
+									Lumayan lah ya barusan kita ajak keliling Nusantara sejenak. Terima kasih telah bersedia memberikan waktu Anda untuk bersenang-senang sebentar bersama kami.
+									<br><br>
+									Apakah Anda bertanya-tanya, "Sebenarnya apa yang baru saja saya lakukan?" Tunggu info berikutnya ke email Anda! Siapa tahu intuisi Anda yang paling tepat menebak jalan pikir perompak Mada sehingga Anda berhak mendapatkan hadiah?
+								</p>
+								<div class="fb-share-button" data-href="http://pinisi.tentangdata.com" data-layout="button_count"></div><br>
+								<div id="twitter-share">
+									<a id="twitter-share" href="https://twitter.com/share" class="twitter-share-button" data-url="http://pinisi.tentangdata.com" data-text="Saya berhasil mendapatkan harta karun!">Tweet</a>
+								</div>
+								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+							</div>
 						</div>
 						<div class="col-lg-1"></div>
 						<div class="col-lg-12">
@@ -46,11 +52,23 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-lg-12 kertas-b"></div>
 				</div>
-				<div class="kertas-b">
-				</div>
-			</div>
 			<div class="col-lg-2"></div>
 		</div>
 	</div>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	$.get("/static/js/treasures.json", function(data) {
+		var treasures = data['treasures'];
+		var harta = [];
+		for (var i = 0; i < treasures.length; i++) {
+			var tokens = treasures[i]['tokens'];
+			var token = tokens[Math.floor(Math.random() * tokens.length)];
+			$("#treasures").append($("<div class='col-lg-2'>").append("<img src='" + token.url + "' class='img-responsive center-block'>").append("<p><strong>" + token.name + "</strong></p>"));
+			harta.push(token.name);
+		}
+		$("#twitter-share").html('<a id="twitter-share" href="https://twitter.com/share" class="twitter-share-button" data-url="http://pinisi.tentangdata.com" data-text="Saya berhasil mendapatkan ' + harta.join() + '!">Tweet</a>');
+	});
+	</script>
 {% endblock %}
