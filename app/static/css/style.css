@@ -3,11 +3,6 @@
 	src: url(/static/fonts/Essays1743.ttf);
 }
 
-@font-face {
-	font-family: Pirata One;
-	src: url(/static/fonts/PirataOne-Regular.ttf);
-}
-
 html {
 	height: 100%;
 	margin: 0;
