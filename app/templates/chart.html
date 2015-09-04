@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<title>Pinisi</title>
+	<script src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
+</head>
+<body>
+	<div style="width: 60%">
+		<canvas id="canvas" height="450" width="600"></canvas>
+	</div>
+
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+	var barChartData = {
+		labels : [{% for e in x %}"{{ e }}",{% endfor %}],
+		datasets : [
+			{
+				fillColor : "rgba(220,220,220,0.5)",
+				strokeColor : "rgba(220,220,220,0.8)",
+				highlightFill: "rgba(220,220,220,0.75)",
+				highlightStroke: "rgba(220,220,220,1)",
+				data : [{% for e in y %}"{{ e }}",{% endfor %}]
+			}
+		]
+
+	}
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myBar = new Chart(ctx).Bar(barChartData, {
+			responsive : true
+		});
+	}
+
+	</script>
+</body>
+</html>
