@@ -1,10 +1,15 @@
 from flask import Blueprint, request, render_template, \
-                  flash, g, session, redirect, url_for
+                  flash, g, session, redirect, url_for, make_response
 from werkzeug import check_password_hash, generate_password_hash
 from app import db
 from app.landing.models import User
+from collections import Counter
 from random import shuffle
+from sqlalchemy import func
+import datetime
 import re
+import StringIO
+import random
 
 # Define the blueprint: 'index', set its url prefix: app.url/
 landing = Blueprint('index', __name__)
@@ -53,3 +58,34 @@ def success():
 @landing.route('/tentang-pinisi', methods=['GET'])
 def about():
 	return render_template('about.html')
+
+@landing.route("/graph.png")
+def simple():
+	from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+	from matplotlib.figure import Figure
+	from matplotlib.dates import DateFormatter
+
+	qty = Counter()
+	q = db.session.query(func.date(User.created_at), func.count(User.id)).group_by(func.date(User.created_at))
+	for dt in q.all():
+		qty[dt[0]] = dt[1]
+
+	fig = Figure()
+	ax = fig.add_subplot(111)
+	x = []
+	y = []
+	date = datetime.date(2015, 9, 2) # start date
+	delta = datetime.timedelta(days=1)
+	while date < datetime.date.today():
+		x.append(date)
+		y.append(qty[date])
+		date += delta
+	ax.plot_date(x, y, '-')
+	ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
+	fig.autofmt_xdate()
+	canvas = FigureCanvas(fig)
+	png_output = StringIO.StringIO()
+	canvas.print_png(png_output)
+	response = make_response(png_output.getvalue())
+	response.headers['Content-Type'] = 'image/png'
+	return response
