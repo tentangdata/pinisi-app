@@ -77,9 +77,9 @@ def simple():
 	date = datetime.date(2015, 9, 2) # start date
 	delta = datetime.timedelta(days=1)
 	while date < datetime.date.today():
+		date += delta
 		x.append(date)
 		y.append(qty[date])
-		date += delta
 	ax.plot_date(x, y, '-')
 	ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
 	fig.autofmt_xdate()
