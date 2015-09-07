@@ -48,4 +48,4 @@ def index(level):
 			else:
 				return redirect('/maps/final/')
 	coordinate = session['maps'][int(level) - 1]
-	return render_template('maps.html', map=session['maps'][int(level) - 1])
+	return render_template('maps.html', map=session['maps'][int(level) - 1], level=level)

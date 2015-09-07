@@ -78,7 +78,9 @@
                 <h1>"<span id='location-name'></span>! Ini level terakhir!"</h1>
                 {% else %}
                 <p>
-                    "<strong>Selamat datang di <span id='location-name'></span>!</strong> Kita ingin mejadi ikon yang nantinya menjadi branding Arsanesia sendiri seperti yang dilakukan Walt Disney terhadap tokoh-tokohnya. Juga ingin membangun suatu konsep serupa dengan Disney Land bernama Arsa Land tetapi tentunya cita rasa kebudayaan Indonesia." &hyphen; <strong>Perompak Mada</strong>
+                    <strong>Perompak Mada</strong><br>
+                    "Selamat datang di <strong><span id='location-name'></span></strong>! Tunjuklah di mana aku menyimpan harta karun tersebut!"<br>
+                    Level: {{ level }}/5
                 </p>
                 {% endif %}
             </div>
@@ -109,7 +111,7 @@
         document.getElementById('location-name').innerHTML = map_data.name;
 
         function onMapClick(e) {
-            var content = "<p>Anda memilih lokasi<br>" + e.latlng.toString() + "</p>";
+            var content = "<p>Anda memilih lokasi<br>" + e.latlng.toString() + ". <strong>Perhatian:</strong> Anda tidak bisa kembali ke level ini setelah Anda mengklik 'Oke'.</p>";
             content += "<form action='' method='post'><input type='hidden' name='level' value='" + map_data.level + "'><input type='hidden' name='lat' value='" + e.latlng.lat + "'>" +
                 "<input type='hidden' name='lng' value='" + e.latlng.lng + "'>" +
                 "<p class='text-center'><input type='submit' class='btn btn-default' value='Oke!'></p></form>"
