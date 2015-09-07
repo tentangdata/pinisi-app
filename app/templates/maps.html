@@ -111,7 +111,7 @@
         document.getElementById('location-name').innerHTML = map_data.name;
 
         function onMapClick(e) {
-            var content = "<p>Anda memilih lokasi<br>" + e.latlng.toString() + ". <strong>Perhatian:</strong> Anda tidak bisa kembali ke level ini setelah Anda mengklik 'Oke'.</p>";
+            var content = "<p>Anda memilih lokasi<br>" + e.latlng.toString() + ".<br><small><em>Anda tidak bisa kembali ke level ini setelah Anda mengklik 'Oke'.</em></small></p>";
             content += "<form action='' method='post'><input type='hidden' name='level' value='" + map_data.level + "'><input type='hidden' name='lat' value='" + e.latlng.lat + "'>" +
                 "<input type='hidden' name='lng' value='" + e.latlng.lng + "'>" +
                 "<p class='text-center'><input type='submit' class='btn btn-default' value='Oke!'></p></form>"
