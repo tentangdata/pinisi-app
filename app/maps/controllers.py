@@ -27,7 +27,7 @@ def final():
 		 		from_name='Tim Tentang Data',
 		 		to=[{'email': email}],
 		 		subject='Pinisi | Sebuah Eksperimen Sosial',
-		 		text='Terima kasih sudah berpartisipasi dalam permainan ini. Berikut adalah titik-titik yang Anda pilih pada setiap lokasi:\n\n%s\n\nHasil dari penelitian dan pemenang dari permainan ini akan disampaikan setelah permainan ini dinyatakan ditutup sekitar pertengahan September. Semoga Anda beruntung!\n\nSalam,\nABK Pinisi' % '\n'.join([str(p) for p in points])
+		 		text='Terima kasih sudah berpartisipasi dalam permainan ini. Berikut adalah titik-titik yang Anda pilih pada setiap lokasi:\n\n%s\n\nHasil dari penelitian dan pemenang dari permainan ini akan disampaikan setelah permainan ini dinyatakan ditutup sekitar awal Oktober. Semoga Anda beruntung!\n\nSalam,\nABK Pinisi' % '\n'.join([str(p) for p in points])
 		 	)
 			return redirect('/success')
 	return render_template('maps.html', map=5)
