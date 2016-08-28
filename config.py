@@ -7,7 +7,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Define the database - we are working with
 # SQLite for this example
-# SQLALCHEMY_DATABASE_URI = 'postgres://postgres:psql@localhost:5432/hartakarun'
+SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost:3306/pinisi'
 DATABASE_CONNECT_OPTIONS = {}
 
 # Application threads. A common general assumption is
@@ -27,5 +27,5 @@ CSRF_SESSION_KEY = "\xfd\x14\x17\xa9\xe9\x95\xc1t1\xc7Z{\x01Xz\x04*iY4[?\xfbg"
 SECRET_KEY = "g\xfb?[4Yi*\x04zX\x01{Z\xc71t\xc1\x95\xe9\xa9\x17\x14\xfd"
 
 # Mandrill
-MANDRILL_API_KEY = '1Mm27tgiNJ_oD3ZZt_2KkA'
-MANDRILL_DEFAULT_FROM = 'aliakbars@rocketmail.com'
+MANDRILL_API_KEY = ''
+MANDRILL_DEFAULT_FROM = ''
